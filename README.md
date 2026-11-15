@@ -1,5 +1,33 @@
 # fasdexadmin
 
+## Firebase App Hosting
+
+App Hosting runs the admin in a container. `apphosting.yaml` builds the Vite
+frontend and starts a static-file server with `npm start`. The server listens
+on `0.0.0.0` using Firebase's `PORT` value (8080 locally) and serves `index.html`
+for browser routes such as `/orders`.
+
+In the `fasdex-admin` Firebase project, open the `fasdexadmin` App Hosting
+backend and set these environment variables before creating a rollout:
+
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_ANON_KEY` (the public anon key)
+- `VITE_GOOGLE_MAPS_API_KEY` for map features
+- `VITE_CUSTOMER_APP_URL` if the customer app is not at `https://app.fasdex.ng`
+
+These variables must be available during **BUILD** because Vite embeds them
+in the browser bundle. Keep credentials out of Git and never use a Supabase
+service-role key for a `VITE_` variable. Create a new rollout after changing
+the environment settings.
+
+To verify the production server locally:
+
+```sh
+npm ci
+npm run build
+PORT=8080 npm start
+```
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
