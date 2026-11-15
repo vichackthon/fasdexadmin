@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary */
+    --color-primary: 19 100% 54%;
+    --color-primary-light: 27 100% 93%;
+
+    /* Secondary */
+    --color-secondary: 140 100% 33%;
+    --color-secondary-light: 140 60% 93%;
+
+    /* Grays */
+    --color-gray-900: 0 0% 6%;
+    --color-gray-500: 0 0% 42%;
+    --color-gray-300: 0 0% 67%;
+    --color-gray-200: 0 0% 85%;
+    --color-gray-100: 0 0% 94%;
+    --color-gray-50: 0 0% 98%;
+
+    /* Semantic */
+    --color-error: 0 84% 60%;
+    --color-success: 140 100% 33%;
+    --color-warning: 42 100% 50%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    @apply bg-white text-gray-900 antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Typography defaults */
+  h1 {
+    @apply text-h1 text-gray-900;
+  }
+
+  h2 {
+    @apply text-h2 text-gray-900;
+  }
+
+  h3 {
+    @apply text-subheader text-gray-900;
+  }
+
+  p {
+    @apply text-body text-gray-500;
+  }
+}
